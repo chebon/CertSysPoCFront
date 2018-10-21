@@ -1,4 +1,15 @@
 
+
+var append_results = function() {
+
+}
+
+var process_errors = function() {
+  alert("sorry an error try again later")
+}
+
+
+
 var action2 = new Vue({
   el: '#action-2',
   data: {
@@ -7,7 +18,7 @@ var action2 = new Vue({
   // define methods under the `methods` object
   methods: {
     verify_submit: function (event) {
-      alert('Hello ' + this.name + '!')
+
       // `event` is the native DOM event
       var student_name = $("#student_name").val()
       var admission_number = $("#admission_number").val()
@@ -21,12 +32,16 @@ var action2 = new Vue({
         contentType: false,
         type: 'POST',
         success: function(data){
-          alert(data);
+          append_results()
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          process_errors()
         }
       });
 
     }
   }
+
 })
 
 // you can invoke methods in JavaScript too
