@@ -237,12 +237,12 @@
 
 
         <!-- Spotlight -->
-        <section class="slice slice-lg bg-cover bg-size--cover" style="background-image: url(../assets/img/backgrounds/img-10.jpg);">
+        <section id="app" class="slice slice-lg bg-cover bg-size--cover" style="background-image: url(../assets/img/backgrounds/img-10.jpg);">
             <span class="mask bg-gradient-dark opacity-3"></span>
             <div class="container pt-lg pb-lg-md">
                 <div class="row justify-content-center">
                     <div class="col-lg-9" style="margin-top: 30px;">
-                        <form>
+                        <form >
                             <div class="form-group bg-white rounded px-2 py-2 shadow">
                                 <div class="row">
                                     <div class="col-8 col-md-9">
@@ -250,11 +250,12 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text border-0"><i class="far fa-search"></i></span>
                                             </div>
-                                            <input type="text" class="form-control border-0 shadow-none" placeholder="Verify Academic Certificate ...">
+                                            <input v-model="student_name" type="text" id="student_name"  name="student_name" class="form-control border-0 shadow-none" placeholder="Full names">
+                                            <input v-model="admission_number" id="admission_number" type="text" name="admisson_number" class="form-control border-0 shadow-none" placeholder="admission number">
                                         </div>
                                     </div>
-                                    <div class="col-4 col-md-3">
-                                        <button type="button" class="btn btn-block btn-primary">
+                                    <div id="action-2"  class="col-4 col-md-3">
+                                        <button v-on:click="verify_submit" type="button" class="btn btn-block btn-primary" v-on:click="greet" >
                                             <span class="d-block d-md-none"><i class="far fa-search"></i></span>
                                             <span class="d-none d-md-block">Verify</span>
                                         </button>
