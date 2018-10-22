@@ -67,7 +67,7 @@ var action2 = new Vue({
       fd.append( 'student_name', student_name );
       fd.append( 'admission_number', admission_number );
       $.ajax({
-        url: 'http://example.com/script.php',
+        url: 'http://127.0.0.1:8000/results',
         data: fd,
         processData: false,
         contentType: false,
