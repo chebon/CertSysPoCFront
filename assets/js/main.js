@@ -43,3 +43,37 @@
         $('#institution_name').empty().append('<strong> Institution Name: </strong>'+obj.institution);
         $('#sct-topics').show();
     }
+
+
+    var create_profile = function () {
+        var myform = document.getElementById("create_profile");
+        var fd = new FormData();
+        fd.fullname = $('#student_name').val()
+        fd.admission_number = $('#admission_number').val()
+
+        console.log(fd);
+
+        var request = $.ajax({
+            url: "http://127.0.0.1:8000/profile",
+            data: fd,
+            cache: false,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (dataofconfirm) {
+                // do something with the result
+            }
+        });
+
+        request.done(function (response, textStatus, jqXHR){
+            // Log a message to the console
+            console.log("Hooray, it worked!");
+            alert('Hooray, profile created sucessfully')
+        });
+
+        // Callback handler that will be called on failure
+        request.fail(function (jqXHR, textStatus, errorThrown){
+            // Log the error to the console
+            alert('profile created sucessfully')
+        });
+    }
