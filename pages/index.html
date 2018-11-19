@@ -14,7 +14,7 @@
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800">
+    <link rel="stylesheet" href="https://fonts.gnavbar-navoogleapis.com/css?family=Nunito:300,400,600,700,800">
 
     <!-- Font Awesome 5 -->
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-pro/css/all.min.css">
@@ -90,56 +90,9 @@
 
 
 
-        <!-- Topbar -->
-        <div id="navbar-top-main" class="navbar-top  navbar-dark bg-dark border-bottom">
-            <div class="container">
-                <div class="navbar-nav align-items-center">
-                    <div class="d-none d-lg-inline-block">
-                        <span class="navbar-text mr-3">Purpose - Website UI Kit</span>
-                    </div>
-                    <div>
-                        <ul class="nav">
-                            <li class="nav-item dropdown ml-lg-2 dropdown-animate" data-toggle="hover">
-                                <a class="nav-link px-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img alt="Image placeholder" src="../assets/img/icons/flags/us.svg">
-                                    <span class="d-none d-lg-inline-block">United States</span>
-                                    <span class="d-lg-none">EN</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow">
-                                    <a href="" class="dropdown-item">
-                                        <img alt="Image placeholder" src="../assets/img/icons/flags/es.svg">Spanish</a>
-                                    <a href="" class="dropdown-item">
-                                        <img alt="Image placeholder" src="../assets/img/icons/flags/ro.svg">Romanian</a>
-                                    <a href="" class="dropdown-item">
-                                        <img alt="Image placeholder" src="../assets/img/icons/flags/gr.svg">Greek</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="ml-auto">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../pages/support.html">Support</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-action="search-open" data-target="#search-main"><i class="far fa-search"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../pages/shop-cart.html"><i class="far fa-shopping-cart"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../pages/login.html"><i class="far fa-user-circle"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
         <!-- Main navbar -->
 
-        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
+        <nav style=" display: none; " class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
             <div class="container">
                 <a class="navbar-brand mr-lg-5" href="../index.html">
                     <img alt="Image placeholder" src="../assets/img/brand/white.png" style="height: 50px;">
@@ -242,7 +195,7 @@
             <div class="container pt-lg pb-lg-md">
                 <div class="row justify-content-center">
                     <div class="col-lg-9" style="margin-top: 30px;">
-                        <form >
+                        <form id="verify_results">
                             <div class="form-group bg-white rounded px-2 py-2 shadow">
                                 <div class="row">
                                     <div class="col-8 col-md-9">
@@ -250,12 +203,12 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text border-0"><i class="far fa-search"></i></span>
                                             </div>
-                                            <input v-model="student_name" type="text" id="student_name"  name="student_name" class="form-control border-0 shadow-none" placeholder="Full names">
-                                            <input v-model="admission_number" id="admission_number" type="text" name="admisson_number" class="form-control border-0 shadow-none" placeholder="admission number">
+                                            <input  type="text" id="student_name"  name="fullname" class="form-control border-0 shadow-none" placeholder="Full names">
+                                            <input  id="admission_number" type="text" name="admission_number" class="form-control border-0 shadow-none" placeholder="admission number">
                                         </div>
                                     </div>
                                     <div id="action-2"  class="col-4 col-md-3">
-                                        <button v-on:click="verify_submit" type="button" class="btn btn-block btn-primary" v-on:click="greet" >
+                                        <button onclick="verify_results()" type="button" class="btn btn-block btn-primary" >
                                             <span class="d-block d-md-none"><i class="far fa-search"></i></span>
                                             <span class="d-none d-md-block">Verify</span>
                                         </button>
@@ -268,7 +221,7 @@
             </div>
         </section>
 
-        <section class="slice" id="sct-topics">
+        <section class="slice" id="sct-topics" style="display: none">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
@@ -289,10 +242,10 @@
                                         </div>
                                         <div>
                                             <div class="media-body pl-2">
-                                                <small id ='course_taken' class="d-block">Course Taken</small>
+                                                <small id ='course_taken' class="d-block">Course Taken: </small>
                                                 <small id ='grade' class="d-block">Overal Grade</small>
                                                 <small  id="study_period" class="d-block text-muted">Study Period</small>
-                                                <small id="institution_name" class="d-block text-muted">institution Name</small>
+                                                <small id="institution_name" class="d-block text-muted">Institution Name</small>
 
                                             </div>
                                         </div>
@@ -357,7 +310,7 @@
     </main>
 
 
-    <footer class="footer footer-dark bg-gradient-primary">
+    <footer style=" display: none; " class="footer footer-dark bg-gradient-primary">
         <div class="container">
             <div class="row pt-md">
                 <div class="col-lg-4 mb-5 mb-lg-0">
