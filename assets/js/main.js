@@ -1,3 +1,28 @@
+var getfilename = function (filename) {
+  var student_results = $.ajax({
+      url: "http://localhost:8000/"+filename,
+      cache: false,
+      processData: false,
+      contentType: false,
+      type: 'GET'
+  });
+
+  student_results.done(function (response, textStatus, jqXHR){
+      // Log a message to the console
+      console.log("Hooray, it worked!");
+      console.log(response);
+  });
+
+  // Callback handler that will be called on failure
+  student_results.fail(function (jqXHR, textStatus, errorThrown){
+      // Log the error to the console
+      alert('an error occured please try again later')
+      var obj = JSON.parse(data);
+      data = '{"student_name":"'+$("#student_name").val()+'", "course": "computer science", "overal_grade": "B", "period": "2012-2014", "institution": "Kabarak University"}'
+      update_dom_verification(data)
+  });
+}
+
 
     var verify_results = function () {
         var myform = document.getElementById("verify_results");
@@ -7,35 +32,37 @@
 
         console.log(fd);
 
+
         var request = $.ajax({
-            url: "http://127.0.0.1:8000/results",
+            url: "http://localhost:8000/result",
             data: fd,
             cache: false,
             processData: false,
             contentType: false,
-            type: 'POST',
-            success: function (dataofconfirm) {
-                // do something with the result
-            }
+            type: 'POST'
         });
 
         request.done(function (response, textStatus, jqXHR){
             // Log a message to the console
             console.log("Hooray, it worked!");
+            console.log(response);
         });
 
         // Callback handler that will be called on failure
         request.fail(function (jqXHR, textStatus, errorThrown){
             // Log the error to the console
             alert('an error occured please try again later')
-            data = '{"student_name":"'+$("#student_name").val()+'", "course": "computer science", "overal_grade": "B", "period": "2012-2014", "institution": "Kabarak University"}'
-            update_dom_verification(data)
+            var obj = JSON.parse(data);
+            file_name = getting_results(obj.account);
+            //data = '{"student_name":"'+$("#student_name").val()+'", "course": "computer science", "overal_grade": "B", "period": "2012-2014", "institution": "Kabarak University"}'
+            //update_dom_verification(data)
         });
     }
 
 
     var update_dom_verification = function(data){
-        var obj = JSON.parse(data)
+        var obj = JSON.parse(data);
+        data = getting_results(obj.account);
         $('#student_name_respo').empty().text(obj.student_name);
         $('#course_taken').empty().append('<strong>Course Taken: </strong>'+obj.course);
         $('#grade').empty().append('<strong>Overal Grade: </strong>'+obj.overal_grade);
