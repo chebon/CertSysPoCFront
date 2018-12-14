@@ -32,7 +32,7 @@ var getfilename = function (filename) {
 
 
         var request = $.ajax({
-            url: "http://35.246.59.250:8001/result",
+            url: "http://35.246.59.250:8001/results",
             data: fd,
             cache: false,
             processData: false,
@@ -45,7 +45,10 @@ var getfilename = function (filename) {
             console.log("Hooray, it worked!");
             console.log(response);
             var obj = JSON.parse(data);
-            getfilename(obj.account)
+            var arrayLength = data.length;
+            for (var i = 0; i < arrayLength; i++) {
+                getfilename(data[i])
+            }
         });
 
         // Callback handler that will be called on failure
@@ -82,7 +85,7 @@ var getfilename = function (filename) {
         console.log(fd);
 
         var request = $.ajax({
-            url: "http://127.0.0.1:8000/profile",
+            url: "http://35.246.59.250:8001/profile",
             data: fd,
             cache: false,
             processData: false,
